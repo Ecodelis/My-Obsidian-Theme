@@ -1,7 +1,7 @@
 {
-	"name": "Sample Theme",
+	"name": "Pellucid Notes",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md"
+	"author": "Marcus Fu",
+	"authorUrl": "https://github.com/Ecodelis/obsidian-pellucid-notes"
 }
