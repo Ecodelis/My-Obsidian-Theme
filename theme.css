@@ -10,10 +10,14 @@ body {
 	--slider-thumb-radius: 0px;
 
 	--font-text-theme: Georgia, serif;
-	--ribbon-background: rgb(113, 70, 70);
+
+	/* Glass settings */
+	--glass-opacity: 0.25;
+	--glass-blur: 16px;
 }
 
-.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
 	display: none;
 }
 
@@ -37,23 +41,60 @@ svg * {
 }
 
 :root {
-   	--input-focus-border-color: Highlight;
-   	--input-focus-outline: 1px solid Canvas;
-   	--input-unfocused-border-color: transparent;
-   	--input-disabled-border-color: transparent;
-   	--input-hover-border-color: black;
-   	/* Default Input Variables for Root */
-
-   	--input-hover-border-color: red;
-	--glass-opacity: 20;
+	--input-focus-border-color: Highlight;
+	--input-focus-outline: 1px solid Canvas;
+	--input-unfocused-border-color: transparent;
+	--input-disabled-border-color: transparent;
+	--input-hover-border-color: red;
 }
 
+/* ============================= */
+/* TEST BACKGROUND IMAGE         */
+/* bg.jpg MUST be beside theme.css */
+/* ============================= */
+
+.app-container {
+	position: relative;
+	isolation: isolate;
+}
+
+.app-container::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background-image: url("https://images8.alphacoders.com/679/thumb-1920-679478.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: -1;
+	pointer-events: none;
+
+	/* DEBUG -> Should see RED if no img*/
+	background-color: red; 
+}
+
+/* ============================= */
+/* GLASS EFFECT                  */
+/* ============================= */
+
 .theme-dark {
-  --background-primary: #333333;
-  --background-secondary: #1d1d1d;
+	--background-primary: rgba(51, 51, 51, var(--glass-opacity));
+	--background-secondary: rgba(29, 29, 29, var(--glass-opacity));
+		--ribbon-background: rgba(113, 70, 70);
 }
 
 .theme-light {
-  --background-primary: #ECE4FF;
-  --background-secondary: #D9C9FF;
+	--background-primary: rgba(236, 228, 255, var(--glass-opacity));
+	--background-secondary: rgba(217, 201, 255, var(--glass-opacity));
+		--ribbon-background: rgb(113, 70, 70);
+}
+
+.workspace-leaf-content,
+.workspace-tab-header-container,
+.modal,
+.menu,
+.prompt,
+.suggestion-container {
+	backdrop-filter: blur(var(--glass-blur));
+	-webkit-backdrop-filter: blur(var(--glass-blur));
 }
