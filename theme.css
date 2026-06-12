@@ -12,11 +12,12 @@ body {
 	--font-text-theme: Georgia, serif;
 
 	/* Glass settings */
+	--glass-opacity-clear: 0.0;
 	--glass-opacity-low: 0.5;
 	--glass-opacity-medium: 0.35;
 	--glass-opacity-high: 0.25;
 	
-	--glass-blur: 16px;
+	--glass-blur: 13px;
 	--glass-blur-high: 20px;
 
 	--test-colour-1: rgb(141, 70, 70);
@@ -43,7 +44,9 @@ body {
 
 .theme-dark {
 	--background-primary-colour: rgb(55, 51, 51);
+
 	/*
+		--background-primary-colour: rgb(55, 51, 51);
 	--background-primary: rgb(from var(--background-primary-colour) r g b / var(--glass-opacity-medium));
 
 	--background-secondary: rgba(29, 29, 29, var(--glass-opacity-high));
@@ -61,6 +64,86 @@ body {
 }
 
 /* =========================================================
+   Clickable Icons
+   e.g., sidebar icons and title bar icons.
+   ========================================================= */
+
+
+/* ---------- Icons that are specifically adjusted ---------- */
+
+
+
+/* =========================================================
+   Title Bar
+   Left, center, and right title bar sections.
+   ========================================================= */
+
+/* ---------- Middle Title Bar ---------- */
+.workspace-split.mod-vertical.mod-root .workspace-tab-header-container {
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+
+	position: relative;
+	isolation: isolate;
+	padding: 0px 10px 0px 10px;
+	background: transparent;
+}
+
+/* Clickable Icons */
+.workspace-split.mod-vertical.mod-root .workspace-tab-header-container .clickable-icon {
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+
+	position: relative;
+	isolation: isolate;
+	background: transparent;
+
+	width: 28px;
+	height: 28px;
+	min-width: 28px;
+	min-height: 28px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.workspace-split.mod-vertical.mod-root .workspace-tab-header-container .clickable-icon::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+
+	background-color: rgb(from var(--background-primary-colour) r g b / var(--glass-opacity-high));
+	backdrop-filter: blur(var(--glass-blur));
+	-webkit-backdrop-filter: blur(var(--glass-blur));
+
+	border-radius: 0px;
+	border: 1px solid rgba(255, 255, 255, var(--glass-opacity-medium));
+
+	z-index: 0;
+	pointer-events: none;
+
+	transition:
+		background-color 150ms ease,
+		border-color 150ms ease,
+		transform 150ms ease,
+		opacity 150ms ease;
+}
+
+.workspace-split.mod-vertical.mod-root .workspace-tab-header-container .clickable-icon > * {
+	position: relative;
+	z-index: 1;
+}
+
+.workspace-split.mod-vertical.mod-root .workspace-tab-header-container .clickable-icon:hover::before {
+	background-color: rgb(from var(--background-primary-colour) r g b / var(--glass-opacity-medium));
+	border-color: rgba(255, 255, 255, var(--glass-opacity-high));
+	transform: scale(1.04);
+}
+
+
+
+/* =========================================================
    Workspace Splits
    Left, center, and right app columns.
    ========================================================= */
@@ -68,10 +151,38 @@ body {
 /* Workspace Split Left */
 
 /* ---------- Main Workspace ---------- */
-.workspace-leaf-content[data-type="markdown"] {
+/* Editor */
+.workspace-leaf-content[data-type="markdown"] .view-content,
+.workspace-leaf-content[data-type="empty"] .view-content {
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+
+	position: relative;
+	isolation: isolate;
+	padding: 10px;
+	background: transparent;
+}
+.workspace-leaf-content[data-type="markdown"] .view-content::before,
+.workspace-leaf-content[data-type="empty"] .view-content::before {
 	backdrop-filter: blur(var(--glass-blur));
 	-webkit-backdrop-filter: blur(var(--glass-blur));
 
+	background-color: rgb(from var(--background-primary-colour) r g b / var(--glass-opacity-high));
+	
+	content: "";
+	position: absolute;
+	inset: 10px;
+
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, var(--glass-opacity-medium));
+
+	z-index: 0;
+	pointer-events: none;
+}
+.workspace-leaf-content[data-type="markdown"] .view-content > *,
+.workspace-leaf-content[data-type="empty"] .view-content > * {
+	position: relative;
+	z-index: 1;
 }
 
 /* View Headers */
@@ -87,6 +198,38 @@ body {
 	--view-header-bg: var(--test-colour-3);
 	--view-header-opacity: var(--glass-opacity-high);
 }
+
+.workspace-leaf-content[data-type="markdown"] .view-header,
+.workspace-leaf-content[data-type="empty"] .view-header {
+	position: relative;
+	isolation: isolate;
+	/*padding: 10px;*/
+	background: transparent;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+}
+.workspace-leaf-content[data-type="markdown"] .view-header::before,
+.workspace-leaf-content[data-type="empty"] .view-header::before {
+	backdrop-filter: blur(var(--glass-blur));
+	-webkit-backdrop-filter: blur(var(--glass-blur));
+	background-color: rgb(from var(--background-primary-colour) r g b / var(--glass-opacity-high));
+
+	content: "";
+	position: absolute;
+	inset: 0px 10px 0px 10px;
+
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, var(--glass-opacity-medium));
+	
+	z-index: 0;
+	pointer-events: none;
+}
+.workspace-leaf-content[data-type="markdown"] .view-header > *,
+.workspace-leaf-content[data-type="empty"] .view-header > * {
+	position: relative;
+	z-index: 1;
+}
+
 
 
 
