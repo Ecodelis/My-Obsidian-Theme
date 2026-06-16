@@ -26,17 +26,17 @@ body {
 	/* Glass Blur */
 	--pellucid-glass-blur: 13px;
 	--pellucid-glass-blur-high: 20px;
-	--pellucid-glass-control-blur: 6px;
+	--pellucid-glass-button-blur: 6px;
 
 	/* Specific Control Variables */
 	--pellucid-glass-bg: rgb(from var(--pellucid-glass-source) r g b / var(--pellucid-glass-opacity-high));
 	--pellucid-glass-bg-hover: rgb(from var(--pellucid-glass-source) r g b / var(--pellucid-glass-opacity-medium));
-	--pellucid-glass-control-bg: rgb(from var(--pellucid-glass-source) r g b / 0.58);
-	--pellucid-glass-control-bg-hover: rgb(from var(--pellucid-glass-source) r g b / 0.48);
+	--pellucid-glass-button-bg: rgb(from var(--pellucid-glass-source) r g b / 0.58);
+	--pellucid-glass-button-bg-hover: rgb(from var(--pellucid-glass-source) r g b / 0.48);
 
 	--pellucid-glass-filter: blur(var(--pellucid-glass-blur));
 
-	--pellucid-glass-control-filter: none;
+	--pellucid-glass-button-filter: none;
 
 	--pellucid-glass-border: 1px solid rgba(255, 255, 255, var(--pellucid-glass-opacity-medium));
 	--pellucid-glass-border-hover: rgba(255, 255, 255, var(--pellucid-glass-opacity-high));
@@ -45,10 +45,10 @@ body {
 		background-color 120ms ease,
 		border-color 120ms ease;
 
-	--ui-control-size: 29px;
+	--workspace-button-size: 29px;
 
-	--ui-tab-height: calc(var(--ui-control-size) - 2px);
-	--ui-tab-gap: var(--size-2-1, 4px);
+	--workspace-tab-button-height: calc(var(--workspace-button-size) - 2px);
+	--workspace-tab-button-gap: var(--size-2-1, 4px);
 }
 
 :root {
@@ -134,9 +134,9 @@ body {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background-color: var(--pellucid-glass-control-bg);
-	backdrop-filter: var(--pellucid-glass-control-filter);
-	-webkit-backdrop-filter: var(--pellucid-glass-control-filter);
+	background-color: var(--pellucid-glass-button-bg);
+	backdrop-filter: var(--pellucid-glass-button-filter);
+	-webkit-backdrop-filter: var(--pellucid-glass-button-filter);
 	
 	border-radius: 5px;
 	border: var(--pellucid-glass-border);
@@ -161,9 +161,9 @@ body {
 	content: "";
 	position: absolute;
 	inset: 0px;
-	background-color: var(--pellucid-glass-control-bg);
-	backdrop-filter: var(--pellucid-glass-control-filter);
-	-webkit-backdrop-filter: var(--pellucid-glass-control-filter);
+	background-color: var(--pellucid-glass-button-bg);
+	backdrop-filter: var(--pellucid-glass-button-filter);
+	-webkit-backdrop-filter: var(--pellucid-glass-button-filter);
 	border-radius: 0px;
 	border: var(--pellucid-glass-border);
 	z-index: 0;
@@ -176,11 +176,11 @@ body {
 	position: relative;
 	z-index: 1;
 
-	flex: 0 0 var(--ui-control-size);
-	width: var(--ui-control-size);
-	height: var(--ui-control-size);
-	min-width: var(--ui-control-size);
-	min-height: var(--ui-control-size);
+	flex: 0 0 var(--workspace-button-size);
+	width: var(--workspace-button-size);
+	height: var(--workspace-button-size);
+	min-width: var(--workspace-button-size);
+	min-height: var(--workspace-button-size);
 }
 
 /* Button Styling */
@@ -206,10 +206,10 @@ body {
 	align-items: center;
 	justify-content: center;
 
-	width: var(--ui-control-size);
-	height: var(--ui-control-size);
-	min-width: var(--ui-control-size);
-	min-height: var(--ui-control-size);
+	width: var(--workspace-button-size);
+	height: var(--workspace-button-size);
+	min-width: var(--workspace-button-size);
+	min-height: var(--workspace-button-size);
 }
 .workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions {
 	position: relative;
@@ -258,7 +258,7 @@ body {
    ========================================================= */
 /* ---------- Left Title Bar ---------- */
 /* Square Button Styling */
-.workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container-inner {
+.workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container-inner { /* Slight button adjustment Positioning */
 	padding-left: 2px
 }
 
@@ -272,11 +272,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 var(--ui-control-size);
-	width: var(--ui-control-size);
-	height: var(--ui-control-size);
-	min-width: var(--ui-control-size);
-	min-height: var(--ui-control-size);
+	flex: 0 0 var(--workspace-button-size);
+	width: var(--workspace-button-size);
+	height: var(--workspace-button-size);
+	min-width: var(--workspace-button-size);
+	min-height: var(--workspace-button-size);
 
 	display: flex;
 	align-items: center;
@@ -293,7 +293,7 @@ body {
 .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container .workspace-tab-header[data-type="search"] .workspace-tab-header-inner:hover::before,
 .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container .workspace-tab-header[data-type="bookmarks"] .workspace-tab-header-inner:hover::before,
 .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container .sidebar-toggle-button.mod-left .clickable-icon:hover::before {
-	background-color: var(--pellucid-glass-control-bg-hover);
+	background-color: var(--pellucid-glass-button-bg-hover);
 	border-color: var(--pellucid-glass-border-hover);
 }
 
@@ -306,14 +306,13 @@ body {
 
 	position: relative;
 	isolation: isolate;
-	gap: var(--ui-tab-gap);
+	gap: var(--workspace-tab-button-gap);
 	padding: 0px 10px 0px 10px;
 	background: transparent;
 
-	border-bottom: 0px;
+	border-bottom: 0px; /* Remove bottom border outline */
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .clickable-icon,
-.workspace-split.mod-vertical.mod-root .workspace-tab-header-container .sidebar-toggle-button.mod-left,
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .sidebar-toggle-button.mod-right,
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .workspace-tab-header-tab-list,
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .workspace-tab-header-new-tab {
@@ -323,11 +322,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 var(--ui-control-size);
-	width: var(--ui-control-size);
-	height: var(--ui-control-size);
-	min-width: var(--ui-control-size);
-	min-height: var(--ui-control-size);
+	flex: 0 0 var(--workspace-button-size);
+	width: var(--workspace-button-size);
+	height: var(--workspace-button-size);
+	min-width: var(--workspace-button-size);
+	min-height: var(--workspace-button-size);
 
 	display: flex;
 	align-items: center;
@@ -338,14 +337,14 @@ body {
 	z-index: 1;
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .clickable-icon:hover::before {
-	background-color: var(--pellucid-glass-control-bg-hover);
+	background-color: var(--pellucid-glass-button-bg-hover);
 	border-color: var(--pellucid-glass-border-hover);
 }
 
 /* Tab Button Styling */
 .workspace-split.mod-vertical.mod-root .workspace-tab-header {
-	height: var(--ui-tab-height);
-	min-height: var(--ui-tab-height);
+	height: var(--workspace-tab-button-height);
+	min-height: var(--workspace-tab-button-height);
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-inner {
 	backdrop-filter: none;
@@ -356,15 +355,15 @@ body {
 	align-items: center;
 	justify-content: center;
 	background: transparent;
-	height: var(--ui-tab-height);
-	min-height: var(--ui-tab-height);
+	height: var(--workspace-tab-button-height);
+	min-height: var(--workspace-tab-button-height);
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-inner::before {
 	display: block;
 
-	flex: 0 0 var(--ui-tab-height);
-	height: var(--ui-tab-height);
-	min-height: var(--ui-tab-height);
+	flex: 0 0 var(--workspace-tab-button-height);
+	height: var(--workspace-tab-button-height);
+	min-height: var(--workspace-tab-button-height);
 
 	display: flex;
 	align-items: center;
@@ -375,28 +374,18 @@ body {
 	z-index: 1;
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner::before { /* If selected */
-	background-color: var(--pellucid-glass-control-bg-hover);
+	background-color: var(--pellucid-glass-button-bg-hover);
 	border-color: var(--pellucid-glass-border-hover);
 }
 
-
 .workspace-tab-header-container .workspace-tab-header.is-active { /* Remove box shadow */
 	box-shadow: 0 0 0;
-}
-
-.workspace-tab-header-container .workspace-tab-header-inner-title {
-	display: flex;
-	align-items: center;
-	height: var(--ui-tab-height);
-	line-height: 1;
-
-	transform: translateY(calc(var(--ui-tab-height) * 0.05));
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-inner::after {
 	display: none;
 }
 
-/* Button Positioning */
+/* Element Positioning */
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .sidebar-toggle-button.mod-left,
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .sidebar-toggle-button.mod-right,
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .workspace-tab-header-tab-list,
@@ -411,13 +400,14 @@ body {
 	min-width: 100%;
 	min-height: 100%;
 }
+
 .mod-root .workspace-tab-header-container-inner {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
 	display: flex;
-	gap: var(--ui-tab-gap);
-	padding: 0px 10px 4px 5px;
+	gap: var(--workspace-tab-button-gap);
+	padding-left: 5px;
 	background: transparent;
 }
 
@@ -441,11 +431,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 var(--ui-control-size);
-	width: var(--ui-control-size);
-	height: var(--ui-control-size);
-	min-width: var(--ui-control-size);
-	min-height: var(--ui-control-size);
+	flex: 0 0 var(--workspace-button-size);
+	width: var(--workspace-button-size);
+	height: var(--workspace-button-size);
+	min-width: var(--workspace-button-size);
+	min-height: var(--workspace-button-size);
 
 	display: flex;
 	align-items: center;
@@ -456,7 +446,7 @@ body {
 	z-index: 1;
 }
 .workspace-split.mod-horizontal.mod-sidedock.mod-right-split .workspace-tab-header-inner:hover::before {
-	background-color: var(--pellucid-glass-control-bg-hover);
+	background-color: var(--pellucid-glass-button-bg-hover);
 	border-color: var(--pellucid-glass-border-hover);
 }
 
