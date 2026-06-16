@@ -11,6 +11,9 @@ body {
 
 	--font-text-theme: Georgia, serif;
 
+	--icon-button-size: 29px;
+	--window-control-width: 138px;
+
 	/* Make titlebar elements transparent (override in misc section if needed)*/
 	--tab-container-background: transparent;
 	--titlebar-background: transparent;
@@ -61,35 +64,7 @@ body {
 /* =========================================================
    Miscellaneous
    ========================================================= */
-/* Titlebar Background */
-.titlebar,
-.titlebar-inner,
-.titlebar-button-container {
-	background: transparent;
-}
-.is-focused .titlebar,
-.is-focused .titlebar-inner,
-.is-focused .titlebar-button-container {
-	background: transparent;
-}
 
-/* Titlebar Window Buttons */
-.titlebar .titlebar-button.mod-minimize,
-.titlebar .titlebar-button.mod-maximize,
-.titlebar .titlebar-button.mod-close {
-	backdrop-filter: none;
-	-webkit-backdrop-filter: none;
-
-	position: relative;
-	isolation: isolate;
-	padding: 0px 16px;
-	background: transparent;
-}
-.is-focused .titlebar .titlebar-button.mod-minimize,
-.is-focused .titlebar .titlebar-button.mod-maximize,
-.is-focused .titlebar .titlebar-button.mod-close {
-	background: transparent;
-}
 
 /* =========================================================
    Left Ribbon Bar
@@ -97,16 +72,14 @@ body {
 /* Button Size */
 .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button.mod-left .clickable-icon,
 .workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions .clickable-icon {
-	--title-button-size: 35px;
-
 	position: relative;
 	z-index: 1;
 
-	flex: 0 0 var(--title-button-size);
-	width: var(--title-button-size);
-	height: var(--title-button-size);
-	min-width: var(--title-button-size);
-	min-height: var(--title-button-size);
+	flex: 0 0 var(--icon-button-size);
+	width: var(--icon-button-size);
+	height: var(--icon-button-size);
+	min-width: var(--icon-button-size);
+	min-height: var(--icon-button-size);
 }
 
 /* Button Styling */
@@ -116,10 +89,8 @@ body {
 
 	position: static;
 	isolation: isolate;
-	padding: 8px 4px 12px;
+	padding: 8px 8px 12px;
 	background: transparent;
-
-	border-bottom: 0px;
 }
 
 .workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions {
@@ -133,10 +104,9 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 4px;
 
-	width: fit-content;
-	height: fit-content;
+	width: var(--icon-button-size);
+	height: var(--icon-button-size);
 	min-width: fit-content;
 	min-height: fit-content;
 }
@@ -167,6 +137,8 @@ body {
 	background: transparent;
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
+
+	padding: 7px
 }
 
 .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button.mod-left .clickable-icon {
@@ -189,7 +161,7 @@ body {
 	backdrop-filter: blur(var(--glass-blur));
 	-webkit-backdrop-filter: blur(var(--glass-blur));
 
-	border-radius: 0px;
+	border-radius: 10px 0px 0px 0px;
 	border: 1px solid rgba(255, 255, 255, var(--glass-opacity-medium));
 
 	z-index: 0;
@@ -217,11 +189,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 29px;
-	width: 29px;
-	height: 29px;
-	min-width: 29px;
-	min-height: 29px;
+	flex: 0 0 var(--icon-button-size);
+	width: var(--icon-button-size);
+	height: var(--icon-button-size);
+	min-width: var(--icon-button-size);
+	min-height: var(--icon-button-size);
 
 	display: flex;
 	align-items: center;
@@ -278,7 +250,6 @@ body {
 	isolation: isolate;
 	padding: 0px 10px 0px 10px;
 	background: transparent;
-	gap: 4px;
 
 	border-bottom: 0px;
 }
@@ -293,11 +264,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 29px;
-	width: 29px;
-	height: 29px;
-	min-width: 29px;
-	min-height: 29px;
+	flex: 0 0 var(--icon-button-size);
+	width: var(--icon-button-size);
+	height: var(--icon-button-size);
+	min-width: var(--icon-button-size);
+	min-height: var(--icon-button-size);
 
 	display: flex;
 	align-items: center;
@@ -400,9 +371,8 @@ body {
 
 	position: relative;
 	isolation: isolate;
-	padding: 0px 10px 0px 10px;
+	padding: 0px calc(var(--window-control-width) + 10px) 0px 10px;
 	background: transparent;
-	gap: 4px;
 
 	border-bottom: 0px;
 }
@@ -413,11 +383,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 29px;
-	width: 29px;
-	height: 29px;
-	min-width: 29px;
-	min-height: 29px;
+	flex: 0 0 var(--icon-button-size);
+	width: var(--icon-button-size);
+	height: var(--icon-button-size);
+	min-width: var(--icon-button-size);
+	min-height: var(--icon-button-size);
 
 	display: flex;
 	align-items: center;
