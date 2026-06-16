@@ -11,56 +11,44 @@ body {
 
 	--font-text-theme: Georgia, serif;
 
-	--pellucid-control-size: 29px;
-	--pellucid-tab-height: calc(var(--pellucid-control-size) - 2px);
-	--pellucid-tab-gap: var(--size-2-1, 4px);
-
 	/* Make titlebar elements transparent (override in misc section if needed)*/
 	--tab-container-background: transparent;
 	--titlebar-background: transparent;
 	--titlebar-background-focused: transparent;
 
-	/* Glass settings */
+	/* --------- Glass settings --------- */
+	/* Glass Opacity */
 	--pellucid-glass-opacity-clear: 0.0;
 	--pellucid-glass-opacity-low: 0.5;
 	--pellucid-glass-opacity-medium: 0.35;
 	--pellucid-glass-opacity-high: 0.45;
 	
+	/* Glass Blur */
 	--pellucid-glass-blur: 13px;
 	--pellucid-glass-blur-high: 20px;
 	--pellucid-glass-control-blur: 6px;
 
+	/* Specific Control Variables */
 	--pellucid-glass-bg: rgb(from var(--pellucid-glass-source) r g b / var(--pellucid-glass-opacity-high));
 	--pellucid-glass-bg-hover: rgb(from var(--pellucid-glass-source) r g b / var(--pellucid-glass-opacity-medium));
 	--pellucid-glass-control-bg: rgb(from var(--pellucid-glass-source) r g b / 0.58);
 	--pellucid-glass-control-bg-hover: rgb(from var(--pellucid-glass-source) r g b / 0.48);
+
 	--pellucid-glass-filter: blur(var(--pellucid-glass-blur));
+
 	--pellucid-glass-control-filter: none;
+
 	--pellucid-glass-border: 1px solid rgba(255, 255, 255, var(--pellucid-glass-opacity-medium));
 	--pellucid-glass-border-hover: rgba(255, 255, 255, var(--pellucid-glass-opacity-high));
+
 	--pellucid-glass-hover-transition:
 		background-color 120ms ease,
 		border-color 120ms ease;
 
-	--icon-button-size: var(--pellucid-control-size);
-	--tab-button-height: var(--pellucid-tab-height);
-	--workspace-tab-gap: var(--pellucid-tab-gap);
-	--glass-opacity-clear: var(--pellucid-glass-opacity-clear);
-	--glass-opacity-low: var(--pellucid-glass-opacity-low);
-	--glass-opacity-medium: var(--pellucid-glass-opacity-medium);
-	--glass-opacity-high: var(--pellucid-glass-opacity-high);
-	--glass-blur: var(--pellucid-glass-blur);
-	--glass-blur-high: var(--pellucid-glass-blur-high);
-	--glass-control-blur: var(--pellucid-glass-control-blur);
-	--glass-bg: var(--pellucid-glass-bg);
-	--glass-bg-hover: var(--pellucid-glass-bg-hover);
-	--glass-control-bg: var(--pellucid-glass-control-bg);
-	--glass-control-bg-hover: var(--pellucid-glass-control-bg-hover);
-	--glass-filter: var(--pellucid-glass-filter);
-	--glass-control-filter: var(--pellucid-glass-control-filter);
-	--glass-border: var(--pellucid-glass-border);
-	--glass-border-hover: var(--pellucid-glass-border-hover);
-	--glass-hover-transition: var(--pellucid-glass-hover-transition);
+	--ui-control-size: 29px;
+
+	--ui-tab-height: calc(var(--ui-control-size) - 2px);
+	--ui-tab-gap: var(--size-2-1, 4px);
 }
 
 :root {
@@ -149,7 +137,8 @@ body {
 	background-color: var(--pellucid-glass-control-bg);
 	backdrop-filter: var(--pellucid-glass-control-filter);
 	-webkit-backdrop-filter: var(--pellucid-glass-control-filter);
-	border-radius: 0px;
+	
+	border-radius: 5px;
 	border: var(--pellucid-glass-border);
 	z-index: 0;
 	pointer-events: none;
@@ -187,11 +176,11 @@ body {
 	position: relative;
 	z-index: 1;
 
-	flex: 0 0 var(--pellucid-control-size);
-	width: var(--pellucid-control-size);
-	height: var(--pellucid-control-size);
-	min-width: var(--pellucid-control-size);
-	min-height: var(--pellucid-control-size);
+	flex: 0 0 var(--ui-control-size);
+	width: var(--ui-control-size);
+	height: var(--ui-control-size);
+	min-width: var(--ui-control-size);
+	min-height: var(--ui-control-size);
 }
 
 /* Button Styling */
@@ -217,10 +206,10 @@ body {
 	align-items: center;
 	justify-content: center;
 
-	width: var(--pellucid-control-size);
-	height: var(--pellucid-control-size);
-	min-width: var(--pellucid-control-size);
-	min-height: var(--pellucid-control-size);
+	width: var(--ui-control-size);
+	height: var(--ui-control-size);
+	min-width: var(--ui-control-size);
+	min-height: var(--ui-control-size);
 }
 .workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions {
 	position: relative;
@@ -283,11 +272,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 var(--pellucid-control-size);
-	width: var(--pellucid-control-size);
-	height: var(--pellucid-control-size);
-	min-width: var(--pellucid-control-size);
-	min-height: var(--pellucid-control-size);
+	flex: 0 0 var(--ui-control-size);
+	width: var(--ui-control-size);
+	height: var(--ui-control-size);
+	min-width: var(--ui-control-size);
+	min-height: var(--ui-control-size);
 
 	display: flex;
 	align-items: center;
@@ -317,7 +306,7 @@ body {
 
 	position: relative;
 	isolation: isolate;
-	gap: var(--pellucid-tab-gap);
+	gap: var(--ui-tab-gap);
 	padding: 0px 10px 0px 10px;
 	background: transparent;
 
@@ -334,11 +323,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 var(--pellucid-control-size);
-	width: var(--pellucid-control-size);
-	height: var(--pellucid-control-size);
-	min-width: var(--pellucid-control-size);
-	min-height: var(--pellucid-control-size);
+	flex: 0 0 var(--ui-control-size);
+	width: var(--ui-control-size);
+	height: var(--ui-control-size);
+	min-width: var(--ui-control-size);
+	min-height: var(--ui-control-size);
 
 	display: flex;
 	align-items: center;
@@ -355,8 +344,8 @@ body {
 
 /* Tab Button Styling */
 .workspace-split.mod-vertical.mod-root .workspace-tab-header {
-	height: var(--pellucid-tab-height);
-	min-height: var(--pellucid-tab-height);
+	height: var(--ui-tab-height);
+	min-height: var(--ui-tab-height);
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-inner {
 	backdrop-filter: none;
@@ -367,15 +356,15 @@ body {
 	align-items: center;
 	justify-content: center;
 	background: transparent;
-	height: var(--pellucid-tab-height);
-	min-height: var(--pellucid-tab-height);
+	height: var(--ui-tab-height);
+	min-height: var(--ui-tab-height);
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-inner::before {
 	display: block;
 
-	flex: 0 0 var(--pellucid-tab-height);
-	height: var(--pellucid-tab-height);
-	min-height: var(--pellucid-tab-height);
+	flex: 0 0 var(--ui-tab-height);
+	height: var(--ui-tab-height);
+	min-height: var(--ui-tab-height);
 
 	display: flex;
 	align-items: center;
@@ -398,10 +387,10 @@ body {
 .workspace-tab-header-container .workspace-tab-header-inner-title {
 	display: flex;
 	align-items: center;
-	height: var(--pellucid-tab-height);
+	height: var(--ui-tab-height);
 	line-height: 1;
 
-	transform: translateY(calc(var(--pellucid-tab-height) * 0.05));
+	transform: translateY(calc(var(--ui-tab-height) * 0.05));
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-inner::after {
 	display: none;
@@ -427,7 +416,7 @@ body {
 	-webkit-backdrop-filter: none;
 
 	display: flex;
-	gap: var(--pellucid-tab-gap);
+	gap: var(--ui-tab-gap);
 	padding: 0px 10px 4px 5px;
 	background: transparent;
 }
@@ -452,11 +441,11 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
-	flex: 0 0 var(--pellucid-control-size);
-	width: var(--pellucid-control-size);
-	height: var(--pellucid-control-size);
-	min-width: var(--pellucid-control-size);
-	min-height: var(--pellucid-control-size);
+	flex: 0 0 var(--ui-control-size);
+	width: var(--ui-control-size);
+	height: var(--ui-control-size);
+	min-width: var(--ui-control-size);
+	min-height: var(--ui-control-size);
 
 	display: flex;
 	align-items: center;
