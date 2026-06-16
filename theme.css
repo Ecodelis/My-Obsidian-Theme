@@ -12,7 +12,6 @@ body {
 	--font-text-theme: Georgia, serif;
 
 	--icon-button-size: 29px;
-	--window-control-width: 138px;
 
 	/* Make titlebar elements transparent (override in misc section if needed)*/
 	--tab-container-background: transparent;
@@ -23,7 +22,7 @@ body {
 	--glass-opacity-clear: 0.0;
 	--glass-opacity-low: 0.5;
 	--glass-opacity-medium: 0.35;
-	--glass-opacity-high: 0.25;
+	--glass-opacity-high: 0.45; /* Current opacity for every transparency effect*/
 	
 	--glass-blur: 13px;
 	--glass-blur-high: 20px;
@@ -64,7 +63,35 @@ body {
 /* =========================================================
    Miscellaneous
    ========================================================= */
+/* Titlebar Background */
+.titlebar,
+.titlebar-inner,
+.titlebar-button-container {
+	background: transparent;
+}
+.is-focused .titlebar,
+.is-focused .titlebar-inner,
+.is-focused .titlebar-button-container {
+	background: transparent;
+}
 
+/* Titlebar Window Buttons */
+.titlebar .titlebar-button.mod-minimize,
+.titlebar .titlebar-button.mod-maximize,
+.titlebar .titlebar-button.mod-close {
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+
+	position: relative;
+	isolation: isolate;
+	padding: 0px 16px;
+	background: transparent;
+}
+.is-focused .titlebar .titlebar-button.mod-minimize,
+.is-focused .titlebar .titlebar-button.mod-maximize,
+.is-focused .titlebar .titlebar-button.mod-close {
+	background: transparent;
+}
 
 /* =========================================================
    Left Ribbon Bar
@@ -371,7 +398,7 @@ body {
 
 	position: relative;
 	isolation: isolate;
-	padding: 0px calc(var(--window-control-width) + 10px) 0px 10px;
+	padding: 0px 10px 0px 10px;
 	background: transparent;
 
 	border-bottom: 0px;
