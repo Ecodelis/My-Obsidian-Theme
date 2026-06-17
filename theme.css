@@ -45,10 +45,12 @@ body {
 		background-color 120ms ease,
 		border-color 120ms ease;
 
+	/* Positioning */
+	--default-button-gap: 3px;
 	--workspace-button-size: 29px;
 
 	--workspace-tab-button-height: calc(var(--workspace-button-size) - 2px);
-	--workspace-tab-button-gap: var(--size-2-1, 4px);
+	--workspace-tab-button-gap: var(--default-button-gap);
 }
 
 :root {
@@ -119,6 +121,11 @@ body {
 	background: transparent;
 }
 
+/* Workspace Resize Handles */
+.workspace-leaf-resize-handle {
+	border: transparent;
+}
+
 /* =========================================================
    Shared Small Control Glass
    Ribbon, title bar, and tab controls.
@@ -156,16 +163,32 @@ body {
 /* =========================================================
    Left Ribbon Bar
    ========================================================= */
+/* Ribbon */
+.workspace-ribbon {
+	border-right: none;
+}
 
+.workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions {
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: var(--workspace-button-size);
+	background: transparent;
+}
 .workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions::before {
 	content: "";
 	position: absolute;
-	inset: 0px;
+	inset: 0;
 	background-color: var(--pellucid-glass-button-bg);
 	backdrop-filter: var(--pellucid-glass-button-filter);
 	-webkit-backdrop-filter: var(--pellucid-glass-button-filter);
+
 	border-radius: 0px;
 	border: var(--pellucid-glass-border);
+	box-sizing: border-box;
+
 	z-index: 0;
 	pointer-events: none;
 }
@@ -190,7 +213,7 @@ body {
 
 	position: static;
 	isolation: isolate;
-	padding: 8px 8px 12px;
+	padding: 6px 8px 12px 8px;
 	background: transparent;
 }
 
@@ -211,17 +234,16 @@ body {
 	min-width: var(--workspace-button-size);
 	min-height: var(--workspace-button-size);
 }
-.workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions {
-	position: relative;
-	isolation: isolate;
-	background: transparent;
-}
 .workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions .clickable-icon > * {
 	position: relative;
 	z-index: 1;
 }
 
 /* Left Collpase Button */
+.workspace-ribbon.side-dock-ribbon.mod-left::before {
+	border-bottom: none;
+}
+
 .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button {
 	position: absolute;
 	isolation: isolate;
@@ -257,6 +279,10 @@ body {
    Left, center, and right title bar sections.
    ========================================================= */
 /* ---------- Left Title Bar ---------- */
+.workspace-tab-header-container {
+	border-bottom: none;
+}
+
 /* Square Button Styling */
 .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container-inner { /* Slight button adjustment Positioning */
 	padding-left: 2px
@@ -297,9 +323,12 @@ body {
 	border-color: var(--pellucid-glass-border-hover);
 }
 
-
 /* ---------- Middle Title Bar ---------- */
 /* Square Button Styling */
+.workspace-tab-header-tab-list {
+	margin: none;
+}
+
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
@@ -385,7 +414,7 @@ body {
 	display: none;
 }
 
-/* Element Positioning */
+/* Button Positioning */
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .sidebar-toggle-button.mod-left,
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .sidebar-toggle-button.mod-right,
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-container .workspace-tab-header-tab-list,
@@ -401,7 +430,8 @@ body {
 	min-height: 100%;
 }
 
-.mod-root .workspace-tab-header-container-inner {
+/* Tab Positioning */
+.mod-root .workspace-tab-header-container-inner { /* If left side bar is open */
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
@@ -410,6 +440,11 @@ body {
 	padding-left: 5px;
 	background: transparent;
 }
+.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed
+~ .mod-root .workspace-tab-header-container-inner { /* If left side bar is collapsed */
+	padding-left: 7px;
+}
+
 
 /* ---------- Right Title Bar ---------- */
 /* Button Styling */
@@ -458,6 +493,7 @@ body {
    ========================================================= */
 
 /* ---------- Left Sidebar ---------- */
+.workspace-sidedock-vault-profile::before,
 .workspace-tabs.mod-top.mod-top-left-space .nav-files-container.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-left-space .nav-header::before,
 .workspace-leaf-content[data-type="canvas"] .view-content::before,
@@ -524,6 +560,32 @@ body {
 }
 .workspace-tabs.mod-top.mod-top-left-space .nav-header .nav-buttons-container {
 	margin-inline: auto;
+}
+
+/* Vault Docker */
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+
+	padding: 2px 10px 2px 10px;
+	margin-bottom: 10px;
+	
+
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	align-items: center;
+
+	background: transparent;
+
+	border-top: none;
+}
+.workspace-sidedock-vault-profile::before {
+	inset: 0px 10px 0px 10px
+}
+.workspace-sidedock-vault-profile > * {
+	position: relative;
+	z-index: 1;
 }
 
 /* ---------- Main Workspace ---------- */
