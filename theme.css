@@ -228,7 +228,7 @@ body {
 .modal.mod-settings.mod-sidebar-layout .setting-group-search {
 	background-color: none;
 	backdrop-filter: none;
-	-webkit-backdrop-filter: none;
+	-webkit-backdrop-filter: none; /* the code below makes it transparent, this code is useless. It only acts as a placeholder for settings logic */
 }
 
 
