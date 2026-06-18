@@ -634,11 +634,11 @@ body {
 	z-index: 1;
 }
 
-/* Search Workspace (TODO: Size of bar and workspace do not match bookmark or explorer!)*/
+/* Search Workspace */
 .workspace-tabs.mod-top.mod-top-left-space .workspace-leaf-content[data-type="search"] .search-result-container.mod-global-search.node-insert-event {
 	position: relative;
 	flex: 1 1 auto;
-	margin: 0px 12px 12px;
+	margin: 0px 10px 10px;
 	padding: 20px 10px 200px 10px;
 	background-color: var(--pellucid-glass-bg);
 	backdrop-filter: var(--pellucid-glass-filter);
@@ -656,17 +656,22 @@ body {
 
 	position: relative;
 	isolation: isolate;
-	margin: 12px 12px 8px;
+	
+	margin: 6px 10px 10px 10px;
+	
+	
 	background: transparent;
 
 	border: none;
 }
 .workspace-tabs.mod-top.mod-top-left-space .workspace-leaf-content[data-type="search"] .search-row::before {
-	inset: 1px 1px 1px 1px;
+	inset: 0px 0px 1px 0px;
 }
 .workspace-tabs.mod-top.mod-top-left-space .workspace-leaf-content[data-type="search"] .search-row > * {
 	position: relative;
 	z-index: 1;
+	transform: translateY(-1px);
+
 }
 
 
