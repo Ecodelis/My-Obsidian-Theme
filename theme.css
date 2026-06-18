@@ -74,6 +74,7 @@ body {
 	/* Positioning */
 	--default-button-gap: 3px;
 	--workspace-button-size: 29px;
+	--ribbon-collapse-glass-height: 39px;
 
 	--workspace-tab-button-height: calc(var(--workspace-button-size) - 2px);
 	--workspace-tab-button-gap: var(--default-button-gap);
@@ -291,19 +292,19 @@ body {
 	flex-direction: column;
 	align-items: center;
 	width: var(--workspace-button-size);
+	overflow: visible;
 	background: transparent;
 }
 .workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions::before {
 	content: "";
 	position: absolute;
-	inset: 0;
+	inset: calc(-1 * var(--ribbon-collapse-glass-height)) 0 0 0;
 	background-color: var(--pellucid-glass-button-bg);
 	backdrop-filter: var(--pellucid-glass-button-filter);
 	-webkit-backdrop-filter: var(--pellucid-glass-button-filter);
 
-	border-radius: 0px 0px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
 	border: var(--pellucid-glass-border);
-	border-top: none;
 	box-sizing: border-box;
 
 	z-index: 0;
@@ -344,6 +345,7 @@ body {
 	position: static;
 	isolation: isolate;
 	padding: 6px 8px 12px 8px;
+	overflow: visible;
 	background: transparent;
 }
 
@@ -377,6 +379,7 @@ body {
 .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button {
 	position: absolute;
 	isolation: isolate;
+	z-index: 1;
 	background: transparent;
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
@@ -396,9 +399,7 @@ body {
 	justify-content: center;
 }
 .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button.mod-left .clickable-icon::before {
-	inset: 0px 0px -10px 0px;
-	border-radius: 10px 10px 0px 0px;
-	border-bottom: none;
+	display: none;
 }
 .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button.mod-left .clickable-icon > * {
 	position: relative;
