@@ -278,9 +278,23 @@ body {
 
 	border-radius: 0px 0px 5px 5px;
 	border: var(--pellucid-glass-border);
+	border-top: none;
 	box-sizing: border-box;
 
 	z-index: 0;
+	pointer-events: none;
+}
+.workspace-ribbon.side-dock-ribbon.mod-left .side-dock-actions::after {
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: 5px;
+	right: 5px;
+	height: 1px;
+
+	background: rgba(255, 255, 255, var(--pellucid-glass-opacity-medium));
+
+	z-index: 2;
 	pointer-events: none;
 }
 
@@ -357,7 +371,9 @@ body {
 	justify-content: center;
 }
 .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button.mod-left .clickable-icon::before {
-	border-radius: 10px 0px 0px 0px;
+	inset: 0px 0px -11px 0px;
+	border-radius: 10px 10px 0px 0px;
+	border-bottom: none;
 }
 .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button.mod-left .clickable-icon > * {
 	position: relative;
