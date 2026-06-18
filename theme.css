@@ -634,7 +634,7 @@ body {
 	z-index: 1;
 }
 
-/* Search Workspace */
+/* Search Workspace (TODO: Size of bar and workspace do not match bookmark or explorer!)*/
 .workspace-tabs.mod-top.mod-top-left-space .workspace-leaf-content[data-type="search"] .search-result-container.mod-global-search.node-insert-event {
 	position: relative;
 	flex: 1 1 auto;
