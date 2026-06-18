@@ -187,6 +187,20 @@ body {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
 }
 
+/* Status Bar */
+.status-bar {
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+
+	padding: 4px 8px 4px 8px;
+	border-radius: 5px 0px 0px 0px;
+	border: var(--pellucid-glass-border);
+	border-bottom: none;
+	border-right: none;
+	box-shadow: none;
+}
+
 /* Settings Modal */
 .modal.mod-settings.mod-sidebar-layout {
 	background-color: var(--pellucid-glass-menu);
