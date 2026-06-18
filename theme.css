@@ -159,7 +159,9 @@ body {
 	border: transparent;
 }
 
-/* All Menus */
+/* =========================================================
+   All Menus
+   ========================================================= */
 .menu {
 	background-color: var(--pellucid-glass-menu);
 	backdrop-filter: var(--pellucid-glass-filter-menu);
@@ -185,6 +187,18 @@ body {
 
 .menu .menu-separator {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+}
+
+/* Prompt */
+.prompt {
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+
+	border-radius: 10px;
+	border: var(--pellucid-glass-border);
+	box-shadow: none;
+	overflow: hidden;
 }
 
 /* Status Bar */
