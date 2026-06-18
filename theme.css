@@ -218,12 +218,21 @@ body {
 	backdrop-filter: var(--pellucid-glass-filter-menu);
 	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
 
+	padding: var(--setting-items-padding);
 	border-radius: 10px;
 	border: var(--pellucid-glass-border);
 	box-shadow: none;
 	overflow: hidden;
 }
 
+.modal.mod-settings.mod-sidebar-layout .setting-group-search {
+	background-color: none;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+}
+
+
+.modal.mod-settings.mod-sidebar-layout .setting-group-search,
 .modal.mod-settings.mod-sidebar-layout .setting-group,
 .modal.mod-settings.mod-sidebar-layout .modal-content,
 .modal.mod-settings.mod-sidebar-layout .vertical-tab-header,
