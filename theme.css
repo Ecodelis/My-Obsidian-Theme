@@ -9,7 +9,47 @@ body {
 	--toggle-thumb-radius: 0px;
 	--slider-thumb-radius: 0px;
 
-	--font-text-theme: Georgia, serif;
+	/* Text */
+	--font-text-theme: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
+
+	/* Text Colour */
+	--pellucid-glass-text: #ffffff;
+	--pellucid-bold-text: #f6cd6f;
+
+	--text-normal: var(--pellucid-glass-text);
+	--text-muted: var(--pellucid-glass-text);
+	--text-faint: var(--pellucid-glass-text);
+	--text-accent: var(--pellucid-glass-text);
+	--text-accent-hover: var(--pellucid-glass-text);
+	--text-on-accent: var(--pellucid-glass-text);
+	--text-on-accent-inverted: var(--pellucid-glass-text);
+	--text-selection: rgba(255, 255, 255, 0.18);
+	--text-highlight-bg: rgba(255, 255, 255, 0.20);
+	--text-highlight-bg-active: rgba(255, 255, 255, 0.28);
+	--text-error: #ff8a8a;
+	--text-warning: #ffd28a;
+	--text-success: #a8f0c6;
+	--bold-color: var(--pellucid-bold-text);
+
+	/* Heading Colour */
+	--h1-color: var(--pellucid-glass-text);
+	--h2-color: var(--pellucid-glass-text);
+	--h3-color: var(--pellucid-glass-text);
+	--h4-color: var(--pellucid-glass-text);
+	--h5-color: var(--pellucid-glass-text);
+	--h6-color: var(--pellucid-glass-text);
+
+	/* Link Colour */
+	--link-color: var(--pellucid-glass-text);
+	--link-color-hover: var(--pellucid-glass-text);
+	--link-external-color: var(--pellucid-glass-text);
+	--link-external-color-hover: var(--pellucid-glass-text);
+	--link-unresolved-color: var(--pellucid-glass-text);
+	--link-unresolved-opacity: 0.7;
+
+	/* Tag Colour */
+	--tag-color: var(--pellucid-glass-text);
+	--tag-color-hover: var(--pellucid-glass-text);
 
 	/* Make titlebar elements transparent (override in misc section if needed)*/
 	--tab-container-background: transparent;
@@ -45,16 +85,10 @@ body {
 
 
 	--pellucid-glass-border: 1px solid rgba(255, 255, 255, var(--pellucid-glass-opacity-medium));
+	--pellucid-glass-table-border: 1px solid rgba(255, 255, 255, var(--pellucid-glass-opacity-high));
 	--pellucid-glass-border-hover: rgba(255, 255, 255, var(--pellucid-glass-opacity-high));
 	
-	/* Obsidian Variables Colour */
-	--pellucid-glass-text: #ffffff;
-	--text-normal: var(--pellucid-glass-text);
-	--text-muted: var(--pellucid-glass-text);
-	--text-faint: var(--pellucid-glass-text);
-	--text-accent: var(--pellucid-glass-text);
-	--text-accent-hover: var(--pellucid-glass-text);
-
+	/* Obsidian Interface Colour */
 	--icon-color: var(--pellucid-glass-text);
 	--icon-color-hover: var(--pellucid-glass-text);
 	--icon-color-active: var(--pellucid-glass-text);
@@ -85,6 +119,15 @@ body {
 	--input-focus-outline: 1px solid Canvas;
 	--input-unfocused-border-color: transparent;
 	--input-disabled-border-color: transparent;
+}
+
+/* =============================== */
+/* Text Global Variables */
+/* =============================== */
+
+.markdown-rendered strong,
+.cm-strong {
+	color: var(--bold-color);
 }
 
 /* =============================== */
@@ -974,6 +1017,12 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 
 
 /* Canvas */
+.canvas-node.is-themed .canvas-node-container,
+.canvas-node .canvas-node-container {
+	box-shadow: none;
+	border: none;
+}
+
 .canvas-node .canvas-node-content,
 .canvas-node.is-themed .canvas-node-content {
 	position: relative;
@@ -982,16 +1031,14 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 }
-.canvas-node .canvas-node-content::before,
-.canvas-node.is-themed .canvas-node-content::before {
+.canvas-node .canvas-node-content::before {
 	content: "";
 	position: absolute;
 	inset: 0;
 
-	background: var(--pellucid-glass-source-menu);
-
-	backdrop-filter: none;
-	-webkit-backdrop-filter: none;
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
 
 	border-radius: inherit;
 	border: var(--pellucid-glass-border);
@@ -999,13 +1046,22 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	z-index: 0;
 	pointer-events: none;
 }
-.canvas-node.is-themed .canvas-node-content::before { /* TODO: Add transparency (+no blur)*/
+.canvas-node.is-themed .canvas-node-content::before {
 	background:
 		linear-gradient(
 			rgba(var(--canvas-color), 0.16),
 			rgba(var(--canvas-color), 0.16)
 		),
-		var(--pellucid-glass-source-menu);
+		rgb(from var(--pellucid-glass-menu) r g b / 0.5);
+
+
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+
+	box-shadow: none;
+
+	z-index: 0;
+	pointer-events: none;
 }
 .canvas-node .canvas-node-content > *,
 .canvas-node.is-themed .canvas-node-content > * {
@@ -1013,6 +1069,87 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	z-index: 1;
 }
 
+/* Canvas Buttons */
+.canvas-controls .canvas-control-group.mod-raised {
+	position: relative;
+	isolation: isolate;
+	background: transparent;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+	border: var(--pellucid-glass-border);
+	box-shadow: none;
+	overflow: hidden;
+}
+.canvas-controls .canvas-control-group.mod-raised::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+	z-index: 0;
+	pointer-events: none;
+}
+.canvas-controls .canvas-control-group.mod-raised > * {
+	position: relative;
+	z-index: 1;
+}
+.canvas-controls .canvas-control-group.mod-raised .canvas-control-item:hover,
+.canvas-controls .canvas-control-group.mod-raised .canvas-control-item.is-active {
+	background-color: var(--pellucid-glass-button-bg-hover);
+}
+
+.canvas-card-menu {
+	position: absolute;
+	isolation: isolate;
+	background: transparent;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+	border: var(--pellucid-glass-border);
+	box-shadow: none;
+	overflow: hidden;
+}
+.canvas-card-menu::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+	z-index: 0;
+	pointer-events: none;
+}
+.canvas-card-menu > * {
+	position: relative;
+	z-index: 1;
+}
+.canvas-card-menu .canvas-card-menu-button {
+	background: transparent;
+	box-shadow: none;
+	color: var(--pellucid-glass-text);
+}
+.canvas-card-menu .canvas-card-menu-button:hover,
+.canvas-card-menu .canvas-card-menu-button.is-active {
+	background-color: var(--pellucid-glass-button-bg-hover);
+}
+
+/* Canvas Dotted Background */
+.theme-dark .canvas-background circle {
+	r: 1.2;
+	fill: rgba(255, 255, 255, 0.35);
+}
+
+.theme-light .canvas-background circle {
+	r: 1.2;
+	fill: rgba(0, 0, 0, 0.25);
+}
+
+/* Canvas Table Borders */
+.canvas-node .canvas-node-content table,
+.canvas-node .canvas-node-content th,
+.canvas-node .canvas-node-content td {
+	border: var(--pellucid-glass-table-border);
+}
 
 
 /* View Headers */
