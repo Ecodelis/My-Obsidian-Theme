@@ -9,20 +9,20 @@ body {
 	--toggle-thumb-radius: 0px;
 	--slider-thumb-radius: 0px;
 
-	/* Text */
+	/* --------- Text Settings --------- */
 	--font-text-theme: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
 
 	/* Text Colour */
-	--pellucid-glass-text: #ffffff;
+	--pelucid-white-text: #ffffff;
 	--pellucid-bold-text: #f6cd6f;
 
-	--text-normal: var(--pellucid-glass-text);
-	--text-muted: var(--pellucid-glass-text);
-	--text-faint: var(--pellucid-glass-text);
-	/* --text-accent: var(--pellucid-glass-text); */
-	/* --text-accent-hover: var(--pellucid-glass-text); */
-	--text-on-accent: var(--pellucid-glass-text);
-	--text-on-accent-inverted: var(--pellucid-glass-text);
+	--text-normal: var(--pelucid-white-text);
+	--text-muted: var(--pelucid-white-text);
+	--text-faint: var(--pelucid-white-text);
+	/* --text-accent: var(--pelucid-white-text); */
+	/* --text-accent-hover: var(--pelucid-white-text); */
+	--text-on-accent: var(--pelucid-white-text);
+	--text-on-accent-inverted: var(--pelucid-white-text);
 	--text-selection: rgba(255, 255, 255, 0.18);
 	--text-highlight-bg: rgba(255, 255, 255, 0.20);
 	--text-highlight-bg-active: rgba(255, 255, 255, 0.28);
@@ -32,24 +32,24 @@ body {
 	--bold-color: var(--pellucid-bold-text);
 
 	/* Heading Colour */
-	--h1-color: var(--pellucid-glass-text);
-	--h2-color: var(--pellucid-glass-text);
-	--h3-color: var(--pellucid-glass-text);
-	--h4-color: var(--pellucid-glass-text);
-	--h5-color: var(--pellucid-glass-text);
-	--h6-color: var(--pellucid-glass-text);
+	--h1-color: #ff8a8a;
+	--h2-color: #ffd28a;
+	--h3-color: #fff08a;
+	--h4-color: #a8f0c6;
+	--h5-color: #9fd8ff;
+	--h6-color: #d8b4ff;
 
 	/* Link Colour */
-	/* --link-color: var(--pellucid-glass-text); */
-	/* --link-color-hover: var(--pellucid-glass-text); */
-	/* --link-external-color: var(--pellucid-glass-text); */
-	/* --link-external-color-hover: var(--pellucid-glass-text); */
-	/* --link-unresolved-color: var(--pellucid-glass-text); */
+	/* --link-color: var(--pelucid-white-text); */
+	/* --link-color-hover: var(--pelucid-white-text); */
+	/* --link-external-color: var(--pelucid-white-text); */
+	/* --link-external-color-hover: var(--pelucid-white-text); */
+	/* --link-unresolved-color: var(--pelucid-white-text); */
 	--link-unresolved-opacity: 0.7;
 
 	/* Tag Colour */
-	--tag-color: var(--pellucid-glass-text);
-	--tag-color-hover: var(--pellucid-glass-text);
+	--tag-color: var(--pelucid-white-text);
+	--tag-color-hover: var(--pelucid-white-text);
 
 	/* Make titlebar elements transparent (override in misc section if needed)*/
 	--tab-container-background: transparent;
@@ -89,17 +89,17 @@ body {
 	--pellucid-glass-border-hover: rgba(255, 255, 255, var(--pellucid-glass-opacity-high));
 	
 	/* Obsidian Interface Colour */
-	--icon-color: var(--pellucid-glass-text);
-	--icon-color-hover: var(--pellucid-glass-text);
-	--icon-color-active: var(--pellucid-glass-text);
+	--icon-color: var(--pelucid-white-text);
+	--icon-color-hover: var(--pelucid-white-text);
+	--icon-color-active: var(--pelucid-white-text);
 
-	--nav-item-color: var(--pellucid-glass-text);
-	--nav-item-color-hover: var(--pellucid-glass-text);
-	--nav-item-color-active: var(--pellucid-glass-text);
+	--nav-item-color: var(--pelucid-white-text);
+	--nav-item-color-hover: var(--pelucid-white-text);
+	--nav-item-color-active: var(--pelucid-white-text);
 
-	--tab-text-color: var(--pellucid-glass-text);
-	--tab-text-color-focused: var(--pellucid-glass-text);
-	--tab-text-color-focused-active: var(--pellucid-glass-text);
+	--tab-text-color: var(--pelucid-white-text);
+	--tab-text-color-focused: var(--pelucid-white-text);
+	--tab-text-color-focused-active: var(--pelucid-white-text);
 
 	--pellucid-glass-hover-transition:
 		background-color 120ms ease,
@@ -803,7 +803,7 @@ body {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 	background: transparent;
-	color: var(--pellucid-glass-text);
+	color: var(--pelucid-white-text);
 
 	border: none;
 	overflow: hidden;
@@ -1126,7 +1126,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .canvas-card-menu .canvas-card-menu-button {
 	background: transparent;
 	box-shadow: none;
-	color: var(--pellucid-glass-text);
+	color: var(--pelucid-white-text);
 }
 .canvas-card-menu .canvas-card-menu-button:hover,
 .canvas-card-menu .canvas-card-menu-button.is-active {
@@ -1296,7 +1296,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 	background: transparent;
-	color: var(--pellucid-glass-text);
+	color: var(--pelucid-white-text);
 
 	border: none;
 	box-shadow: none;
