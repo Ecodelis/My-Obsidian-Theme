@@ -19,8 +19,8 @@ body {
 	--text-normal: var(--pellucid-glass-text);
 	--text-muted: var(--pellucid-glass-text);
 	--text-faint: var(--pellucid-glass-text);
-	--text-accent: var(--pellucid-glass-text);
-	--text-accent-hover: var(--pellucid-glass-text);
+	/* --text-accent: var(--pellucid-glass-text); */
+	/* --text-accent-hover: var(--pellucid-glass-text); */
 	--text-on-accent: var(--pellucid-glass-text);
 	--text-on-accent-inverted: var(--pellucid-glass-text);
 	--text-selection: rgba(255, 255, 255, 0.18);
@@ -40,11 +40,11 @@ body {
 	--h6-color: var(--pellucid-glass-text);
 
 	/* Link Colour */
-	--link-color: var(--pellucid-glass-text);
-	--link-color-hover: var(--pellucid-glass-text);
-	--link-external-color: var(--pellucid-glass-text);
-	--link-external-color-hover: var(--pellucid-glass-text);
-	--link-unresolved-color: var(--pellucid-glass-text);
+	/* --link-color: var(--pellucid-glass-text); */
+	/* --link-color-hover: var(--pellucid-glass-text); */
+	/* --link-external-color: var(--pellucid-glass-text); */
+	/* --link-external-color-hover: var(--pellucid-glass-text); */
+	/* --link-unresolved-color: var(--pellucid-glass-text); */
 	--link-unresolved-opacity: 0.7;
 
 	/* Tag Colour */
