@@ -159,6 +159,17 @@ body {
 	--ribbon-background: rgb(113, 70, 70);
 }
 
+/* Canvas Dotted Background */
+.theme-dark .canvas-background circle {
+	r: 1.0;
+	fill: rgba(255, 255, 255, 0.35);
+}
+
+.theme-light .canvas-background circle {
+	r: 1.0;
+	fill: rgba(0, 0, 0, 0.25);
+}
+
 /* =========================================================
    Miscellaneous
    ========================================================= */
@@ -721,7 +732,7 @@ body {
 .workspace-leaf-content[data-type="empty"] .view-header::before,
 .workspace-leaf-content[data-type="bases"] .view-header::before,
 .workspace-tabs.mod-top.mod-top-right-space .nav-header::before,
-.workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
+.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="tag"] .tag-container.node-insert-event::before {
@@ -1023,6 +1034,15 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	border: none;
 }
 
+.canvas-node-placeholder::after { /* When Zoomed Out */
+	background:
+	linear-gradient(
+		rgba(var(--canvas-color), 0.36),
+		rgba(var(--canvas-color), 0.36)
+	),
+	rgb(from var(--pellucid-glass-menu) r g b / 0.25);
+}
+
 .canvas-node .canvas-node-content,
 .canvas-node.is-themed .canvas-node-content {
 	position: relative;
@@ -1049,10 +1069,10 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .canvas-node.is-themed .canvas-node-content::before {
 	background:
 		linear-gradient(
-			rgba(var(--canvas-color), 0.16),
-			rgba(var(--canvas-color), 0.16)
+			rgba(var(--canvas-color), 0.36),
+			rgba(var(--canvas-color), 0.36)
 		),
-		rgb(from var(--pellucid-glass-menu) r g b / 0.5);
+		rgb(from var(--pellucid-glass-menu) r g b / 0.25);
 
 
 	backdrop-filter: var(--pellucid-glass-filter-menu);
@@ -1133,17 +1153,6 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	background-color: var(--pellucid-glass-button-bg-hover);
 }
 
-/* Canvas Dotted Background */
-.theme-dark .canvas-background circle {
-	r: 1.2;
-	fill: rgba(255, 255, 255, 0.35);
-}
-
-.theme-light .canvas-background circle {
-	r: 1.2;
-	fill: rgba(0, 0, 0, 0.25);
-}
-
 /* Canvas Table Borders */
 .canvas-node .canvas-node-content table,
 .canvas-node .canvas-node-content th,
@@ -1219,7 +1228,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 /* Backlink Pane */
 /* Outgoing Link Pane */
 /* All Properties */
-.workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event,
+.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event {
 	backdrop-filter: none;
@@ -1231,12 +1240,12 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	background: transparent;
 
 }
-.workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
+.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event::before {
 	inset: 4px 10px 10px 10px;
 }
-.workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event > *,
+.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event > *,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event > *,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event > * {
 	position: relative;
