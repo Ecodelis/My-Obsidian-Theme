@@ -732,7 +732,7 @@ body {
 .workspace-leaf-content[data-type="empty"] .view-header::before,
 .workspace-leaf-content[data-type="bases"] .view-header::before,
 .workspace-tabs.mod-top.mod-top-right-space .nav-header::before,
-.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
+.workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="tag"] .tag-container.node-insert-event::before {
@@ -1228,7 +1228,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 /* Backlink Pane */
 /* Outgoing Link Pane */
 /* All Properties */
-.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event,
+.workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event {
 	backdrop-filter: none;
@@ -1240,12 +1240,12 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	background: transparent;
 
 }
-.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
+.workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event::before,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event::before {
 	inset: 4px 10px 10px 10px;
 }
-.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event > *,
+.workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event > *,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event > *,
 .workspace-tabs.mod-top.mod-top-right-space .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event > * {
 	position: relative;
