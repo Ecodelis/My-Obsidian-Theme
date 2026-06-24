@@ -667,13 +667,8 @@ body {
 .nav-header::before,
 .workspace-leaf-content[data-type="canvas"] .view-content::before,
 .workspace-leaf-content[data-type="markdown"] .view-content::before,
-.workspace-leaf-content[data-type="empty"] .view-content::before,
 .workspace-leaf-content[data-type="bases"] .view-content::before,
-.view-header::before,
-.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
-.workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event::before,
-.workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event::before,
-.workspace-leaf-content[data-type="tag"] .tag-container.node-insert-event::before {
+.view-header::before {
 	content: "";
 	position: absolute;
 	background-color: var(--pellucid-glass-bg);
@@ -782,12 +777,37 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 */
 
 /* ---------- File Explorer and Bookmarks ---------- */
+.workspace-leaf-content[data-type="bookmarks"],
+.workspace-leaf-content[data-type="file-explorer"],
+.workspace-leaf-content[data-type="search"],
+.workspace-leaf-content[data-type="backlink"],
+.workspace-leaf-content[data-type="outgoing-link"],
+.workspace-leaf-content[data-type="all-properties"],
+.workspace-leaf-content[data-type="outline"],
+.workspace-leaf-content[data-type="tag"] {
+	min-height: 0;
+	overflow: hidden;
+}
+
+.workspace-leaf-content[data-type="bookmarks"] .view-content.node-insert-event,
+.workspace-leaf-content[data-type="file-explorer"] .nav-files-container.node-insert-event,
+.workspace-leaf-content[data-type="search"] .search-result-container.mod-global-search.node-insert-event,
+.workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event,
+.workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event,
+.workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event,
+.workspace-leaf-content[data-type="outline"] .view-content.node-insert-event,
+.workspace-leaf-content[data-type="tag"] .tag-container.node-insert-event {
+	flex: 1 1 auto;
+	min-height: 0;
+	max-height: calc(100% - 14px);
+}
+
 .workspace-leaf-content[data-type="bookmarks"] .view-content.node-insert-event,
 .workspace-leaf-content[data-type="file-explorer"] .nav-files-container.node-insert-event {
 	position: relative;
 	isolation: isolate;
 	margin: 4px 10px 10px 10px;
-	padding: 16px 10px 200px 10px;
+	padding: 16px 10px 10px 10px;
 	width: auto;
 
 	background-color: var(--pellucid-glass-bg);
@@ -834,15 +854,17 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 /* ---------- Search Pane ---------- */
 .workspace-leaf-content[data-type="search"] .search-result-container.mod-global-search.node-insert-event {
 	position: relative;
-	flex: 1 1 auto;
-	margin: 0px 10px 10px;
-	padding: 20px 10px 200px 10px;
+	margin: 4px 10px 10px 10px;
+	padding: 16px 10px 10px 10px;
+	width: auto;
 	background-color: var(--pellucid-glass-bg);
 	backdrop-filter: var(--pellucid-glass-filter);
 	-webkit-backdrop-filter: var(--pellucid-glass-filter);
 
 	border-radius: 10px;
 	border: var(--pellucid-glass-border);
+	overflow-x: hidden;
+	overflow-y: auto;
 	box-sizing: border-box;
 }
 
@@ -1006,7 +1028,6 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 /* ---------- Main Editor Content ---------- */
 .workspace-leaf-content[data-type="canvas"] .view-content,
 .workspace-leaf-content[data-type="markdown"] .view-content,
-.workspace-leaf-content[data-type="empty"] .view-content,
 .workspace-leaf-content[data-type="bases"] .view-content {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
@@ -1020,14 +1041,48 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 }
 .workspace-leaf-content[data-type="canvas"] .view-content::before,
 .workspace-leaf-content[data-type="markdown"] .view-content::before,
-.workspace-leaf-content[data-type="empty"] .view-content::before,
 .workspace-leaf-content[data-type="bases"] .view-content::before {
 	inset: 4px 10px 10px 10px;
 }
+.workspace-leaf-content[data-type="canvas"] .view-content::after {
+	content: "";
+	position: absolute;
+	inset: 4px 10px 10px 10px;
+	border-radius: 10px;
+	border: var(--pellucid-glass-border);
+	z-index: 2;
+	pointer-events: none;
+}
 .workspace-leaf-content[data-type="canvas"] .view-content > *,
 .workspace-leaf-content[data-type="markdown"] .view-content > *,
-.workspace-leaf-content[data-type="empty"] .view-content > *,
 .workspace-leaf-content[data-type="bases"] .view-content > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* ---------- Empty/New Tab Content ---------- */
+.workspace-leaf-content[data-type="empty"] .view-content {
+	position: relative;
+	isolation: isolate;
+	margin: 4px 10px 10px 10px;
+	padding: 16px 10px 10px 10px;
+	width: auto;
+	min-height: 0;
+
+	background-color: var(--pellucid-glass-bg);
+	backdrop-filter: var(--pellucid-glass-filter);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter);
+	border-radius: 10px;
+	border: var(--pellucid-glass-border);
+
+	overflow-x: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+.workspace-leaf-content[data-type="empty"] .view-content::before {
+	display: none;
+}
+.workspace-leaf-content[data-type="empty"] .view-content > * {
 	position: relative;
 	z-index: 1;
 }
@@ -1052,6 +1107,13 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 }
 
 /* ---------- Canvas Workspace ---------- */
+.workspace-leaf-content[data-type="canvas"] .canvas-wrapper {
+	border-radius: 10px;
+	overflow: hidden;
+	clip-path: inset(1px round 9px);
+	contain: paint;
+}
+
 .canvas-node.is-themed .canvas-node-container,
 .canvas-node .canvas-node-container {
 	box-shadow: none;
@@ -1188,19 +1250,26 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event,
 .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event,
 .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event {
-	backdrop-filter: none;
-	-webkit-backdrop-filter: none;
-
 	position: relative;
 	isolation: isolate;
-	padding: 20px 20px 20px 20px;
-	background: transparent;
+	margin: 4px 10px 10px 10px;
+	padding: 16px 10px 10px 10px;
+	width: auto;
 
+	background-color: var(--pellucid-glass-bg);
+	backdrop-filter: var(--pellucid-glass-filter);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter);
+	border-radius: 10px;
+	border: var(--pellucid-glass-border);
+
+	overflow-x: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
 }
 .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event::before,
 .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event::before,
 .workspace-leaf-content[data-type="all-properties"] .view-content.node-insert-event::before {
-	inset: 4px 10px 10px 10px;
+	display: none;
 }
 .workspace-leaf-content[data-type="backlink"] .backlink-pane.node-insert-event > *,
 .workspace-leaf-content[data-type="outgoing-link"] .outgoing-link-pane.node-insert-event > *,
@@ -1275,21 +1344,27 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 
 /* ---------- Tags Pane ---------- */
 .workspace-leaf-content[data-type="tag"] .tag-container.node-insert-event {
-	backdrop-filter: none;
-	-webkit-backdrop-filter: none;
-
 	position: relative;
 	isolation: isolate;
-	padding: 20px 20px 20px 20px;
-	background: transparent;
-
-	width: 100%;
+	margin: 4px 10px 10px 10px;
+	padding: 16px 10px 10px 10px;
+	width: auto;
 	align-self: stretch;
-	height: 100%;
+	height: auto;
+	min-height: 0;
+
+	background-color: var(--pellucid-glass-bg);
+	backdrop-filter: var(--pellucid-glass-filter);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter);
+	border-radius: 10px;
+	border: var(--pellucid-glass-border);
+
+	overflow-x: hidden;
+	overflow-y: auto;
 	box-sizing: border-box;
 }
 .workspace-leaf-content[data-type="tag"] .tag-container.node-insert-event::before {
-	inset: 4px 10px 10px 10px;
+	display: none;
 }
 .workspace-leaf-content[data-type="tag"] .tag-container.node-insert-event > * {
 	position: relative;
