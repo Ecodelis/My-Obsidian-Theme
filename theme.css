@@ -1,3 +1,5 @@
+/*TODO: Make the selection boxes not glitch out of the rounded corners (buttons and settings on vault dockor for example) */
+
 body {
 	--radius-s: 0px;
 	--radius-m: 0px;
@@ -63,11 +65,11 @@ body {
 	--pellucid-glass-opacity-medium: 0.35;
 	--pellucid-glass-opacity-high: 0.65;
 
-	--pellucid-glass-opacity-menu: 0.55;
+	--pellucid-glass-opacity-menu:0.70;
 
 	/* Glass Blur */
 	--pellucid-glass-blur: 6px;
-	--pellucid-glass-blur-high: 12px;
+	--pellucid-glass-blur-high: 16px;
 	--pellucid-glass-button-blur: 6px;
 
 	/* Specific Control Variables */
