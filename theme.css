@@ -697,26 +697,6 @@ body {
 	z-index: 1;
 }
 
-/* left-specific nav header only */
-.workspace-tabs.mod-top.mod-top-left-space .nav-header {
-	padding: 0px 10px 0px 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	min-height: calc(var(--header-height) + 2px); /* Align bar with other navigation elements */
-}
-.workspace-tabs.mod-top.mod-top-left-space .nav-header .nav-buttons-container {
-	margin-inline: auto;
-}
-
-/* right-specific nav header only */
-.workspace-tabs.mod-top.mod-top-right-space .nav-header {
-	padding: 8px 8px 8px 8px;
-}
-
-
-
 /* ----------- View Headers (the file name) ---------- */
 /* shared view header styling */
 .view-header {
