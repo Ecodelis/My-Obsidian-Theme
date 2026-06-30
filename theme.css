@@ -63,11 +63,13 @@ body {
 	--pellucid-glass-opacity-medium: 0.35;
 	--pellucid-glass-opacity-high: 0.65;
 
-	--pellucid-glass-opacity-menu:0.70;
+	--pellucid-glass-opacity-menu: 0.70;
+	--pellucid-glass-opacity-menu-2: 0.80;
 
 	/* Glass Blur */
 	--pellucid-glass-blur: 6px;
 	--pellucid-glass-blur-high: 16px;
+	--pellucid-glass-blur-menu-2: calc(var(--pellucid-glass-blur-high) + 2px);
 	--pellucid-glass-button-blur: 6px;
 
 	/* Specific Control Variables */
@@ -77,11 +79,14 @@ body {
 	--pellucid-glass-button-bg-hover: rgb(from var(--pellucid-glass-source) r g b / 0.48);
 	--pellucid-glass-menu: rgb(from var(--pellucid-glass-source-menu) r g b / var(--pellucid-glass-opacity-menu));
 	--pellucid-glass-menu-fill: linear-gradient(var(--pellucid-glass-menu), var(--pellucid-glass-menu));
+	--pellucid-glass-menu-2: rgb(from var(--pellucid-glass-source-menu-2) r g b / var(--pellucid-glass-opacity-menu-2));
+	--pellucid-glass-menu-fill-2: linear-gradient(var(--pellucid-glass-menu-2), var(--pellucid-glass-menu-2));
 	--pellucid-glass-clear: rgb(0 0 0 / var(--pellucid-glass-opacity-clear));
 
 	--pellucid-glass-filter: blur(var(--pellucid-glass-blur));
 	--pellucid-glass-button-filter: blur(var(--pellucid-glass-blur));;
 	--pellucid-glass-filter-menu: blur(var(--pellucid-glass-blur-high));
+	--pellucid-glass-filter-menu-2: blur(var(--pellucid-glass-blur-menu-2));
 
 
 	--pellucid-glass-border: 1px solid rgba(255, 255, 255, var(--pellucid-glass-opacity-medium));
@@ -137,6 +142,7 @@ body {
 .theme-dark {
 	--pellucid-glass-source: rgb(43, 40, 40);
 	--pellucid-glass-source-menu: rgb(15, 15, 15);
+	--pellucid-glass-source-menu-2: rgb(8, 8, 8);
 
 	--background-primary: transparent;
 	--background-secondary: transparent;
@@ -284,13 +290,49 @@ body {
 	overflow: hidden;
 }
 
-.modal.mod-settings.mod-sidebar-layout .setting-group-search {
-	background-color: none;
-	backdrop-filter: none;
-	-webkit-backdrop-filter: none; /* the code below makes it transparent, this code is useless. It only acts as a placeholder for settings logic */
+.modal.mod-settings.mod-sidebar-layout .setting-item-control select.dropdown,
+.modal.mod-settings.mod-sidebar-layout button,
+.modal.mod-settings.mod-sidebar-layout .setting-item-control input[type="text"],
+.modal.mod-settings.mod-sidebar-layout .setting-item-control input[type="search"],
+.modal.mod-settings.mod-sidebar-layout .setting-item-control input[type="number"],
+.modal.mod-settings.mod-sidebar-layout .setting-item-control input[type="password"],
+.modal.mod-settings.mod-sidebar-layout .setting-item-control input[type="url"],
+.modal.mod-settings.mod-sidebar-layout .setting-item-control textarea {
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+
+	color: var(--pelucid-white-text);
+	border: var(--pellucid-glass-border);
+	border-radius: 5px;
+	box-shadow: none;
 }
 
+.modal.mod-settings.mod-sidebar-layout button.mod-cta {
+	border-color: var(--interactive-accent);
+}
 
+.modal.mod-settings.mod-sidebar-layout button.mod-destructive {
+	border-color: var(--text-error);
+	color: var(--text-error);
+}
+
+.modal.mod-settings.mod-sidebar-layout .setting-item-control select.dropdown option {
+	background-color: var(--pellucid-glass-source-menu);
+	color: var(--pelucid-white-text);
+}
+
+.modal.mod-settings.mod-sidebar-layout .setting-item-control .checkbox-container,
+.modal.mod-settings.mod-sidebar-layout .setting-item-control .checkbox-container::before,
+.modal.mod-settings.mod-sidebar-layout .setting-item-control .checkbox-container::after {
+	border-radius: 5px;
+}
+
+.modal.mod-settings.mod-sidebar-layout .setting-item-control input[type="range"]::-webkit-slider-thumb {
+	border-radius: 5px;
+}
+
+.modal.mod-settings.mod-sidebar-layout .setting-hotkey,
 .modal.mod-settings.mod-sidebar-layout .setting-group-search,
 .modal.mod-settings.mod-sidebar-layout .setting-group,
 .modal.mod-settings.mod-sidebar-layout .modal-content,
@@ -299,17 +341,52 @@ body {
 	background: transparent;
 }
 
-/* Confirmation Modal */
-.modal-container.mod-confirmation .modal-bg {
-	background-color: var(--pellucid-glass-clear);
-	backdrop-filter: var(--pellucid-glass-filter-menu);
-	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
-}
-
-.modal-container.mod-confirmation .modal {
+.modal.mod-settings.mod-sidebar-layout .setting-group-search {
 	background-color: var(--pellucid-glass-menu);
 	backdrop-filter: var(--pellucid-glass-filter-menu);
 	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+
+	width: 100%;
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+	border: var(--pellucid-glass-border);
+	border-radius: 10px;
+	box-shadow: none;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.modal.mod-settings.mod-sidebar-layout .setting-group-search .search-input-container {
+	width: 100%;
+	margin: 0px;
+	background: transparent;
+	box-shadow: none;
+}
+.modal.mod-settings.mod-sidebar-layout .setting-group-search input[type="search"] {
+	width: 100%;
+	background: transparent;
+	color: var(--pelucid-white-text);
+	border: none;
+	box-shadow: none;
+}
+
+
+.modal.mod-settings.mod-sidebar-layout .search-input-container.mod-hotkey .setting-hotkey.mod-active.input-right-decorator {
+	/* Search Hotkeys "Press hotkey..." fix */
+	background:
+		var(--pellucid-glass-menu-fill),
+		var(--pellucid-glass-source-menu);
+	color: var(--pelucid-white-text);
+	border-radius: 0px;
+	padding: 0px 15px;
+	z-index: 2;
+	white-space: nowrap;
+}
+
+/* Modal Container */
+.modal-container .modal {
+	background-color: var(--pellucid-glass-menu-2);
+	backdrop-filter: var(--pellucid-glass-filter-menu-2);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu-2);
 
 	border-radius: 10px;
 	border: var(--pellucid-glass-border);
@@ -317,10 +394,75 @@ body {
 	overflow: hidden;
 }
 
-.modal-container.mod-confirmation .modal-content,
-.modal-container.mod-confirmation .modal-title,
-.modal-container.mod-confirmation .modal-button-container {
+.modal-container .modal-content,
+.modal-container .modal-title,
+.modal-container .modal-button-container,
+.modal-container .modal-sidebar,
+.modal-container .community-modal-controls,
+.modal-container .vertical-tab-header,
+.modal-container .vertical-tab-content-container {
 	background: transparent;
+}
+
+.modal-container .setting-item-control select.dropdown,
+.modal-container .setting-item-control input[type="text"],
+.modal-container .setting-item-control input[type="search"],
+.modal-container .setting-item-control input[type="number"],
+.modal-container .setting-item-control input[type="password"],
+.modal-container .setting-item-control input[type="url"],
+.modal-container .setting-item-control textarea {
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+
+	color: var(--pelucid-white-text);
+	border: var(--pellucid-glass-border);
+	border-radius: 5px;
+	box-shadow: none;
+}
+
+.modal-container button {
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+
+	color: var(--pelucid-white-text);
+	border: var(--pellucid-glass-border);
+	border-radius: 5px;
+	box-shadow: none;
+}
+
+.modal-container .setting-item-control select.dropdown option {
+	background-color: var(--pellucid-glass-source-menu);
+	color: var(--pelucid-white-text);
+}
+
+.modal-container .setting-item-control .checkbox-container,
+.modal-container .setting-item-control .checkbox-container::before,
+.modal-container .setting-item-control .checkbox-container::after {
+	border-radius: 5px;
+}
+
+.modal-container .setting-item-control input[type="checkbox"] {
+	border-radius: 5px;
+}
+
+.modal-container .search-input-container {
+	background-color: var(--pellucid-glass-menu);
+	backdrop-filter: var(--pellucid-glass-filter-menu);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+
+	border: var(--pellucid-glass-border);
+	border-radius: 5px;
+	box-shadow: none;
+	overflow: hidden;
+}
+
+.modal-container .search-input-container input[type="search"] {
+	background: transparent;
+	color: var(--pelucid-white-text);
+	border: none;
+	box-shadow: none;
 }
 
 
@@ -653,6 +795,7 @@ body {
 
 /* ---------- Shared Glass Effects ---------- */
 .workspace-leaf-content[data-type="search"] .search-results-info::before,
+.workspace-leaf-content[data-type="search"] .search-info-container::before,
 .workspace-leaf-content[data-type="search"] .search-row::before,
 .workspace-sidedock-vault-profile::before,
 .nav-header::before,
@@ -842,7 +985,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 /* ---------- Search Pane ---------- */
 .workspace-leaf-content[data-type="search"] .search-result-container.mod-global-search.node-insert-event {
 	position: relative;
-	margin: 4px 10px 10px 10px;
+	margin: 0px 10px 10px 10px;
 	padding: 16px 10px 10px 10px;
 	width: auto;
 	background-color: var(--pellucid-glass-bg);
@@ -855,6 +998,30 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	overflow-y: auto;
 	box-sizing: border-box;
 }
+
+/* Search Parameters Pop-up */
+.workspace-leaf-content[data-type="search"] .search-params {
+	position: relative;
+	margin: 0px 10px 10px 10px;
+	padding: 16px 10px 10px 10px;
+	width: auto;
+	background-color: var(--pellucid-glass-bg);
+	backdrop-filter: var(--pellucid-glass-filter);
+	-webkit-backdrop-filter: var(--pellucid-glass-filter);
+
+	border-radius: 10px;
+	border: var(--pellucid-glass-border);
+	overflow-x: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;	
+} 
+
+.workspace-leaf-content[data-type="search"] .checkbox-container,
+.workspace-leaf-content[data-type="search"] .checkbox-container::before,
+.workspace-leaf-content[data-type="search"] .checkbox-container::after {
+	border-radius: 5px;
+}
+
 
 /* Search Row */
 .workspace-leaf-content[data-type="search"] .search-row {
