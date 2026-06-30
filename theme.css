@@ -138,25 +138,16 @@ body {
 	--pellucid-glass-source: rgb(43, 40, 40);
 	--pellucid-glass-source-menu: rgb(15, 15, 15);
 
-	/*
-		--background-primary-colour: rgb(55, 51, 51);
-	--background-primary: rgb(from var(--background-primary-colour) r g b / var(--pellucid-glass-opacity-medium));
-
-	--background-secondary: rgba(29, 29, 29, var(--pellucid-glass-opacity-high));
-	--ribbon-background: rgb(113, 70, 70);
-	*/
-
 	--background-primary: transparent;
 	--background-secondary: transparent;
 }
 
 .theme-light {
-	--pellucid-glass-source: rgb(236, 228, 255);
-	--pellucid-glass-source-menu: rgb(236, 228, 255);
-	--background-primary-colour: var(--pellucid-glass-source);
-	--background-primary: rgba(236, 228, 255, var(--pellucid-glass-opacity-medium));
-	--background-secondary: rgba(217, 201, 255, var(--pellucid-glass-opacity-medium));
-	--ribbon-background: rgb(113, 70, 70);
+	--pellucid-glass-source: rgb(64, 60, 60);
+	--pellucid-glass-source-menu: rgb(32, 30, 30);
+
+	--background-primary: transparent;
+	--background-secondary: transparent;
 }
 
 /* Canvas Dotted Background */
@@ -167,7 +158,7 @@ body {
 
 .theme-light .canvas-background circle {
 	r: 1.0;
-	fill: rgba(0, 0, 0, 0.25);
+	fill: rgba(255, 255, 255, 0.30);
 }
 
 /* =========================================================
