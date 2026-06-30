@@ -1199,6 +1199,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .workspace-leaf-content[data-type="bases"] .view-content::before {
 	inset: 4px 10px 10px 10px;
 }
+
 .workspace-leaf-content[data-type="canvas"] .view-content::after {
 	content: "";
 	position: absolute;
@@ -1297,9 +1298,9 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	position: absolute;
 	inset: 0;
 
-	background-color: var(--pellucid-glass-menu);
-	backdrop-filter: var(--pellucid-glass-filter-menu);
-	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+	background-color: var(--pellucid-glass-source-menu);
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
 
 	border-radius: inherit;
 	border: var(--pellucid-glass-border);
@@ -1313,11 +1314,11 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 			rgba(var(--canvas-color), 0.36),
 			rgba(var(--canvas-color), 0.36)
 		),
-		rgb(from var(--pellucid-glass-menu) r g b / 0.25);
+		var(--pellucid-glass-source-menu);
 
 
-	backdrop-filter: var(--pellucid-glass-filter-menu);
-	-webkit-backdrop-filter: var(--pellucid-glass-filter-menu);
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
 
 	box-shadow: none;
 
